@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    backendUrl: "http://zahela-backend.azurewebsites.net",
+    backendUrl: "https://zahela-backend.azurewebsites.net",
   };
   
   /*

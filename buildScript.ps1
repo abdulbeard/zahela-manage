@@ -1,5 +1,5 @@
 #npm install -g uglifyjs
-ng build;
+ng build --configuration=azure;
 
 cd dist;
 
