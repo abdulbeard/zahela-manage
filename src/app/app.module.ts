@@ -10,6 +10,7 @@ import { FoodComponent } from './components/food/food.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { UserService } from './services/UserService';
 
 
 const appRoutes: Routes = [
@@ -38,7 +39,7 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only
     ),
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 

@@ -1,3 +1,120 @@
-<p>
-  rsvp works!
-</p>
+<!-- <pre>{{users | json}}</pre> -->
+<div class="ui container">
+  <br/><br/>
+  <div class="ui centered grid">
+    <div class="ui statistics">
+      <div class="green statistic">
+        <div class="value">
+          {{this.totalComing}}
+        </div>
+        <div class="label">
+          Coming
+        </div>
+      </div>
+      <div class="red statistic">
+        <div class="value">
+          {{this.totalNotComing}}
+        </div>
+        <div class="label">
+          Not Coming
+        </div>
+      </div>
+      <div class="grey statistic">
+        <div class="value">
+          {{this.totalMaybe}}
+        </div>
+        <div class="label">
+          Maybe
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="ui selectable compact celled table">
+    <thead class="full-width">
+      <tr>
+        <th (click)="sortByFirstName()">First Name<i [class]="getChevronClass('firstName')"></i></th>
+        <th (click)="sortByLastName()">Last Name<i [class]="getChevronClass('lastName')"></i></th>
+        <th (click)="sortByEmail()">Email<i [class]="getChevronClass('email')"></i></th>
+        <th (click)="sortByUserame()">Username<i [class]="getChevronClass('username')"></i></th>
+        <th (click)="sortByRsvpStatus()">Coming<i [class]="getChevronClass('rsvpStatus')"></i></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="users">
+      <ng-container *ngFor="let user of users">
+        <tr>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{getUserEmail(user)}}</td>
+          <td>{{user.username}}</td>
+          <td class="center aligned">
+            <i [class]="getRsvpClass(user)"></i>
+          </td>
+        </tr>
+        <ng-container *ngIf="user.linkedGuests">
+          <tr class="positive" *ngFor="let lg of user.linkedGuests">
+            <td class="right aligned">{{lg.firstName}}</td>
+            <td class="right aligned">{{lg.lastName}}</td>
+            <td class="right aligned">{{getUserEmail(lg)}}</td>
+            <td class="right aligned">{{lg.username}}</td>
+            <td class="center aligned">
+              <i [class]="getRsvpClass(lg)"></i>
+            </td>
+          </tr>
+        </ng-container>
+      </ng-container>
+
+      
+
+
+      <!-- <tr>
+      <td class="collapsing">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox"> <label></label>
+        </div>
+      </td>
+      <td>John Lilki</td>
+      <td>September 14, 2013</td>
+      <td>jhlilk22@yahoo.com</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td class="collapsing">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox"> <label></label>
+        </div>
+      </td>
+      <td>Jamie Harington</td>
+      <td>January 11, 2014</td>
+      <td>jamieharingonton@yahoo.com</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td class="collapsing">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox"> <label></label>
+        </div>
+      </td>
+      <td>Jill Lewis</td>
+      <td>May 11, 2014</td>
+      <td>jilsewris22@yahoo.com</td>
+      <td>Yes</td>
+    </tr> -->
+    </tbody>
+    <tfoot class="full-width">
+      <tr>
+        <th></th>
+        <th colspan="4">
+          <div class="ui right floated small primary labeled icon button">
+            <i class="user icon"></i> Add User
+          </div>
+          <div class="ui small  button">
+            Approve
+          </div>
+          <div class="ui small  disabled button">
+            Approve All
+          </div>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

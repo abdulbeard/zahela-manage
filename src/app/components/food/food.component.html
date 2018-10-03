@@ -1,3 +1,87 @@
-<p>
-  food works!
-</p>
+<div class="ui container">
+  <br/><br/>
+  <div class="ui centered grid">
+    <!-- <div class="ui statistics" *ngFor="let allergy of mapToArray(allergies)">
+      <div class="green statistic">
+        <div class="value">
+          {{this.allergy.key}}
+        </div>
+        <div class="label">
+          {{allergy.value}}
+        </div>
+      </div>
+    </div> -->
+    <h2 class="ui center aligned header">Allergies</h2>
+  </div>
+  <div class="ui centered grid">
+    <br/><br/>
+    <div class="ui horizontal list">
+      <div class="item" *ngFor="let allergy of mapToArray(allergies)">
+        <div class="ui large red label">{{allergy.key}}</div>
+        <div class="content">
+          <div class="header">{{allergy.value}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br/><br/><br/>
+  <div class="ui centered grid">
+    <h2 class="ui center aligned header">Dietary Restrictions</h2>
+  </div>
+  <div class="ui centered grid">
+    <br/><br/>
+    <div class="ui horizontal list">
+      <div class="item" *ngFor="let diet of mapToArray(diets)">
+        <div class="ui blue large label">{{diet.key}}</div>
+        <div class="content">
+          <div class="header">{{diet.value}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br/><br/><br/>
+  <div class="ui centered grid">
+    <h2 class="ui center aligned header">Dietary Restrictions</h2>
+  </div>
+  <div class="ui centered grid">
+    <br/><br/>
+    <div class="ui horizontal list">
+      <div class="item" *ngFor="let dr of mapToArray(religiousRestrictions)">
+        <div class="ui green large label">{{dr.key}}</div>
+        <div class="content">
+          <div class="header">{{dr.value}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br/><br/><br/><br/><br/>
+  <div class="ui centered grid">
+    <h2>Freeform Replies</h2>
+  </div>
+
+  <div class="ui centered grid">
+    <div class="ui feed">
+      <div class="event" *ngFor="let user of freeformRestrictionsUsers">
+        <div class="label">
+          <img [src]="user.avatarImage">
+        </div>
+        <div class="content">
+          <div class="summary">
+            <a>{{user.lastName}}, {{user.firstName}}</a> posted on a comment:
+            <div class="date">
+            </div>
+          </div>
+          <div class="extra text">
+            <p>{{user.freeformRestrictions}}</p>
+            <p>{{user.freeformAllergies}}</p>
+          </div>
+          <div class="meta">
+          </div>
+        </div>
+      </div>
+    </div></div>
+
+</div>
