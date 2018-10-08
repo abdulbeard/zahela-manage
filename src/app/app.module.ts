@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { UserService } from './services/UserService';
 import { ScheduleComponent } from './components/schedule/schedule.component';
+import { FeedbackService } from './services/FeedbackService';
 
 
 const appRoutes: Routes = [
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only
     ),
   ],
-  providers: [UserService],
+  providers: [UserService, FeedbackService],
   bootstrap: [AppComponent]
 })
 

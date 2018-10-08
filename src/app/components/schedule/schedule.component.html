@@ -5,100 +5,68 @@
     <div class="ui statistics">
       <div class="green statistic">
         <div class="value">
-          {{this.totalComing}}
+          {{this.totalFridayEvening}}
         </div>
         <div class="label">
-          Coming
+          Friday Evening
         </div>
       </div>
-      <div class="red statistic">
+      <div class="green statistic">
         <div class="value">
-          {{this.totalNotComing}}
+          {{this.totalSaturdayDaytime}}
         </div>
         <div class="label">
-          Not Coming
+          Saturday Daytime
         </div>
       </div>
-      <div class="grey statistic">
+      <div class="green statistic">
         <div class="value">
-          {{this.totalMaybe}}
+          {{this.totalSaturdayEvening}}
         </div>
         <div class="label">
-          Maybe
+          Saturday Evening
+        </div>
+      </div>
+      <div class="green statistic">
+        <div class="value">
+          {{this.totalSundayMorning}}
+        </div>
+        <div class="label">
+          Sunday Morning
         </div>
       </div>
     </div>
   </div>
+
+
   <table class="ui selectable compact celled table">
     <thead class="full-width">
       <tr>
-        <th (click)="sortByFirstName()">First Name<i [class]="getChevronClass('firstName')"></i></th>
-        <th (click)="sortByLastName()">Last Name<i [class]="getChevronClass('lastName')"></i></th>
-        <th (click)="sortByEmail()">Email<i [class]="getChevronClass('email')"></i></th>
-        <th (click)="sortByUserame()">Username<i [class]="getChevronClass('username')"></i></th>
-        <th (click)="sortByRsvpStatus()">Coming<i [class]="getChevronClass('rsvpStatus')"></i></th>
+        <th>Email</th>
+        <th>Friday Evening</th>
+        <th>Saturday Daytime</th>
+        <th>Saturday Evening</th>
+        <th>Sunday Morning</th>
       </tr>
     </thead>
-    <tbody *ngIf="users">
-      <ng-container *ngFor="let user of users">
+    <tbody *ngIf="feedback">
+      <ng-container *ngFor="let fb of feedback">
         <tr>
-          <td>{{user.firstName}}</td>
-          <td>{{user.lastName}}</td>
-          <td>{{getUserEmail(user)}}</td>
-          <td>{{user.username}}</td>
+          <td class="center aligned">{{fb.username}}</td>
           <td class="center aligned">
-            <i [class]="getRsvpClass(user)"></i>
+            <i [class]="getBooleanClass(fb.fridayEvening)"></i>
+          </td>
+          <td class="center aligned">
+            <i [class]="getBooleanClass(fb.saturdayDaytime)"></i>
+          </td>
+          <td class="center aligned">
+            <i [class]="getBooleanClass(fb.saturdayEvening)"></i>
+          </td>
+          <td class="center aligned">
+            <i [class]="getBooleanClass(fb.sundayMorning)"></i>
           </td>
         </tr>
-        <ng-container *ngIf="user.linkedGuests">
-          <tr class="positive" *ngFor="let lg of user.linkedGuests">
-            <td class="right aligned">{{lg.firstName}}</td>
-            <td class="right aligned">{{lg.lastName}}</td>
-            <td class="right aligned">{{getUserEmail(lg)}}</td>
-            <td class="right aligned">{{lg.username}}</td>
-            <td class="center aligned">
-              <i [class]="getRsvpClass(lg)"></i>
-            </td>
-          </tr>
-        </ng-container>
       </ng-container>
-
-      
-
-
-      <!-- <tr>
-      <td class="collapsing">
-        <div class="ui fitted slider checkbox">
-          <input type="checkbox"> <label></label>
-        </div>
-      </td>
-      <td>John Lilki</td>
-      <td>September 14, 2013</td>
-      <td>jhlilk22@yahoo.com</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td class="collapsing">
-        <div class="ui fitted slider checkbox">
-          <input type="checkbox"> <label></label>
-        </div>
-      </td>
-      <td>Jamie Harington</td>
-      <td>January 11, 2014</td>
-      <td>jamieharingonton@yahoo.com</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td class="collapsing">
-        <div class="ui fitted slider checkbox">
-          <input type="checkbox"> <label></label>
-        </div>
-      </td>
-      <td>Jill Lewis</td>
-      <td>May 11, 2014</td>
-      <td>jilsewris22@yahoo.com</td>
-      <td>Yes</td>
-    </tr> -->
     </tbody>
     <tfoot class="full-width">
       <tr>
@@ -117,4 +85,29 @@
       </tr>
     </tfoot>
   </table>
+
+  <br/><br/><br/><br/><br/>
+  <div class="ui centered grid">
+    <div class="ui feed">
+      <ng-container *ngFor="let comment of allComments">
+        <div class="event" *ngIf="comment.commentHistory.length > 0">
+          <div class="label">
+            <img src="https://zahelastorage.blob.core.windows.net/zahela-assets/defaultAvatars/male-4.svg">
+          </div>
+          <div class="content">
+            <div class="summary">
+              <a>{{comment.email}}</a> posted:
+              <div class="date">
+              </div>
+            </div>
+            <div class="extra text" *ngIf="comment.commentHistory">
+              <p *ngFor="let ch of comment.commentHistory">{{ch}}</p>
+            </div>
+            <div class="meta">
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
 </div>
