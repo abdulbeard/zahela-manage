@@ -11,6 +11,7 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { UserService } from './services/UserService';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 
 const appRoutes: Routes = [
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   { path: AppRoutes.summary, component: SummaryComponent },
   { path: AppRoutes.rsvp, component: RsvpComponent },
   { path: AppRoutes.food, component: FoodComponent },
+  { path: AppRoutes.schedule, component: ScheduleComponent },
   { path: AppRoutes.empty, redirectTo: AppRoutes.home, pathMatch: "full" }, //base url, no path
   { path: AppRoutes.wildCard, redirectTo: AppRoutes.home }, //wrong url/404
 ];
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     RsvpComponent,
     HomeComponent,
     FoodComponent,
-    SummaryComponent
+    SummaryComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule, 
