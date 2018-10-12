@@ -4,6 +4,7 @@ export class Routes {
     public static readonly rsvp: string = 'rsvp';
     public static readonly food: string = 'food';
     public static readonly schedule: string = 'schedule';
+    public static readonly playlist: string = 'playlist';
 
     //default routes
     public static readonly empty: string = '';

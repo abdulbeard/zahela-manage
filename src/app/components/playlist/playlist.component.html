@@ -1,0 +1,25 @@
+<div class="ui container">
+  <ng-container *ngIf="songs">
+    <div class="ui cards">
+      <div class="ui card" *ngFor="let song of songs">
+        <div class="content">
+          <a [class]="getLabelClass(song)">{{getStatusText(song.approvalStatus)}}</a>
+          <b class="username">{{song.username}}</b>
+          <br/><br/>
+          <div class="description">
+            <a [attr.href]="song.url" target="__blank">Url</a>
+            <p *ngIf="song.name">Name: {{song.name}}</p>
+            <p *ngIf="song.artist">Artist: {{song.artist}}</p>
+            <p *ngIf="song.album">Album: {{song.album}}</p>
+            <p *ngIf="song.year">Year: {{song.year}}</p>
+            <p *ngIf="song.comment">Comment: {{song.comment}}</p>
+          </div>
+        </div>
+        <div class="extra content">
+          <button class="ui button" (click)="changeApprovalStatus(song, 'Approved')">Approve</button>
+          <button class="ui button" (click)="changeApprovalStatus(song, 'Rejected')">Reject</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

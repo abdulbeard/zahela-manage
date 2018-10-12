@@ -13,6 +13,8 @@ import { HttpModule } from '@angular/http';
 import { UserService } from './services/UserService';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { FeedbackService } from './services/FeedbackService';
+import { PlaylistService } from './services/PlaylistService';
+import { PlaylistComponent } from './components/playlist/playlist.component';
 
 
 const appRoutes: Routes = [
@@ -21,6 +23,7 @@ const appRoutes: Routes = [
   { path: AppRoutes.rsvp, component: RsvpComponent },
   { path: AppRoutes.food, component: FoodComponent },
   { path: AppRoutes.schedule, component: ScheduleComponent },
+  { path: AppRoutes.playlist, component: PlaylistComponent },
   { path: AppRoutes.empty, redirectTo: AppRoutes.home, pathMatch: "full" }, //base url, no path
   { path: AppRoutes.wildCard, redirectTo: AppRoutes.home }, //wrong url/404
 ];
@@ -32,7 +35,8 @@ const appRoutes: Routes = [
     HomeComponent,
     FoodComponent,
     SummaryComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule, 
@@ -43,7 +47,7 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only
     ),
   ],
-  providers: [UserService, FeedbackService],
+  providers: [UserService, FeedbackService, PlaylistService],
   bootstrap: [AppComponent]
 })
 

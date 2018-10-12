@@ -25,7 +25,7 @@ export class ScheduleComponent implements OnInit {
 
   allComments: Array<ScheduleFeedback> = [];
 
-  private feedback: Array<ScheduleFeedback>;
+  feedback: Array<ScheduleFeedback>;
   ngOnInit() {
   }
 
